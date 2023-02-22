@@ -9,3 +9,7 @@ example layouts.
 
 This repository demonstrates advanced uses of Pants. For more introductory use cases, consider looking at `example-python` or `example-jvm`.
 
+## Examples
+
+### Consume an `antlr`-generated Parser from Python code
+
