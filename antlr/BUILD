@@ -47,6 +47,7 @@ adhoc_tool(
     output_directories=["expr_parser",],
     # These are consumed by `antlr`, but are not relevant to this target's dependents.
     execution_dependencies=[":grammars"],
+    root_output_directory=".",
     log_output=True,
 )
 
