@@ -11,5 +11,17 @@ This repository demonstrates advanced uses of Pants. For more introductory use c
 
 ## Examples
 
-### Consume an `antlr`-generated Parser from Python code
+### Using a `jar` file from Maven to generate Python source code
 
+Using `adhoc_tool`, you can run a Maven artifact that's declared by a `jvm_artifact` target.
+
+To see the demo in practice, run `./pants run antlr/antlr_demo.py`.
+
+This demo uses:
+
+* `jvm_artifact` to declare a dependency on the Antlr parser generator
+* `adhoc_tool` which asks Pants to run the Antlr dependency as a build step, outputting files containing Python bindings (as loose `files`)
+* `experimental_wrap_as_python_sources`, which allows subsequent steps to consume the loose files as Python sources that can be imported.
+
+
+### 
