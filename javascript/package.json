@@ -1,0 +1,19 @@
+{
+  "name": "yarnish_thing",
+  "version": "1.0.0",
+  "source": "main.js",
+  "license": "MIT",
+  "minified": "index.js",
+  "targets": {
+    "minified": {
+      "isLibrary": false,
+      "optimize": false
+    }
+  },
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "es-leftpad": "^1.0.0"
+  }
+}
