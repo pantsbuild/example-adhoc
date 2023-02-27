@@ -51,5 +51,16 @@ adhoc_tool(
     log_output=True,
 )
 
+shell_command(
+    name="run_antlr_sc",
+    command="antlr4-bin Expr.g4 -Dlanguage=Python3 -o expr_parser -package expr_parser",
+    output_directories=["expr_parser",],
+    # These are consumed by `antlr`, but are not relevant to this target's dependents.
+    execution_dependencies=[":grammars", _runnable(name="antlr4-bin", address=":antlr4")],
+    root_output_directory=".",
+    log_output=True,
+)
+
+
 # Allows the loose files provided by `:run_antlr` to be consumed as Python sources
-experimental_wrap_as_python_sources(name="expr_parser_py", inputs=[":run_antlr", ])
+experimental_wrap_as_python_sources(name="expr_parser_py", inputs=[":run_antlr_sc",])
