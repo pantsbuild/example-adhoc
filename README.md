@@ -32,7 +32,7 @@ Using `system_binary`, you can declare dependencies on tools that are managed ex
 
 This allows you to use tools from languages that aren't directly supported by Pants. We can use that to manage a `node_modules` directory using `yarn` and `node` binaries that were installed onto the host system (e.g. by Homebrew or `apt`).
 
-Our demo produces a simple script that imports an `npm` dependency and functions from a first-party library and links them together using [Parcel](https://parceljs.org/). Package resolution and tool execution is handled by `yarn`.
+Our demo produces a simple CLI script that imports an `npm` dependency and functions from a first-party library and links them together using [Parcel](https://parceljs.org/). Package resolution and tool execution is handled by `yarn`.
 
 To see the demo in practice, run `./pants run javascript:run-js-app`, or `./pants package javascript:packaged-js` to package the JavaScript code into a zip file.
 
