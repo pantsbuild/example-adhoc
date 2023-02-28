@@ -1,8 +1,16 @@
 # Copyright 2023 Pants project contributors (see CONTRIBUTORS.md).
 # Licensed under the Apache License, Version 2.0 (see LICENSE).
 
-from antlr4 import CommonTokenStream, InputStream, ParseTreeWalker
-from expr_parser import ExprLexer, ExprListener, ExprParser  # pants: no-infer-dep
+from antlr4 import (  # type: ignore[import]
+    CommonTokenStream,
+    InputStream,
+    ParseTreeWalker,
+)
+from expr_parser import (  # type: ignore[import] # pants: no-infer-dep,
+    ExprLexer,
+    ExprListener,
+    ExprParser,
+)
 
 
 class ExprPrinter(ExprListener.ExprListener):
