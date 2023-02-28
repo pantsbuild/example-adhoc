@@ -42,3 +42,19 @@ This demo uses:
 * `adhoc_tool` to execute the `yarn install` and `yarn parcel` commands.
 * `run_shell_command` to run the generated JavaScript artifact with `node`.
 * `archive` to package the generated JavaScript archive into a zip file
+
+
+### Automatically generating JavaScript bindings for a Flask web app with an OpenAPI schema
+
+Using `adhoc_tool`, you can run individual first-party sources to fetch their output. This can produce inputs for other targets.
+
+In this example, a small Flask web application can dump an OpenAPI schema, which can in turn be used to transparently generate bindings for other languages.
+
+To see the demo in practive, run `./pants export-codegen openapi:webapp-js-bindings`
+
+This demo uses
+
+* `python_source` to declare a runnable Python source, `webapp.py`.
+* `jvm_artifact` to declare a dependency on the JVM-based OpenAPI client generator
+* `adhoc_tool` to run the `webapp.py` source, and saving its `stdout` to a file using the `stdout=` field
+* `adhoc_tool` to run the JVM client generator
