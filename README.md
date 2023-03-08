@@ -1,13 +1,16 @@
-# example-adhoc
-An example repository to demonstrate support for unsupported languages and arbitrary 3rd-party tools in Pants.
+# Pants `adhoc_tool` examples
 
-See [pantsbuild.org](https://www.pantsbuild.org/docs) for much more detailed documentation.
+This is an example repository to demonstrate support for unsupported languages and arbitrary 3rd-party tools in [Pants](https://pantsbuild.org). 
+
+The examples use the `adhoc_tool` and `system_binary` targets, that were added as experimental features in Pants 2.16.0a0, and will 
+
+~~See [pantsbuild.org](https://www.pantsbuild.org/docs) for much more detailed documentation of `adhoc_tool` and `system_binary`~~ Full documentation will available before Pants 2.16 stable release.
 
 This is only one possible way of laying out your project with Pants. See 
 [pantsbuild.org/docs/source-roots#examples](https://www.pantsbuild.org/docs/source-roots#examples) for some other
 example layouts.
 
-This repository demonstrates advanced uses of Pants. For more introductory use cases, consider looking at `example-python` or `example-jvm`.
+This repository demonstrates advanced uses of Pants. For more introductory use cases, consider looking at [`example-python`](https://github.com/pantsbuild/example-python) or [`example-jvm`](https://github.com/pantsbuild/example-jvm).
 
 ## Examples
 
