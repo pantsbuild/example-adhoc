@@ -1,4 +1,13 @@
-# Byte-compiled / optimized / DLL files
+# Copyright 2023 Pants project contributors.
+# Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+# Pants workspace files
+/.pants.d/
+/dist
+/.pids
+/.pants.workdir.file_lock*
+
+# Python files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -127,3 +136,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Editors
+.idea/
+*.iml
