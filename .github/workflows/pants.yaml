@@ -22,6 +22,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.9]
+        node-version: [19.x]
     steps:
     - uses: actions/checkout@v3
     - uses: pantsbuild/actions/init-pants@v2
@@ -45,6 +46,9 @@ jobs:
         # but will cause the cache entry to grow without bound over time.
         # See https://pants.readme.io/docs/using-pants-in-ci for tips on how to periodically clean it up.
         # Alternatively you change gha-cache-key to ignore old caches.
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
     - name: Check BUILD files
       run: ./pants tailor --check update-build-files --check
     - name: Lint and typecheck
@@ -53,11 +57,13 @@ jobs:
     - name: Test
       run: |
         ./pants test ::
-    - name: Package / Run
+    - name: Verify Demos
       run: |
         # We also smoke test that our release process will work by running `package`.
         ./pants package ::
-        ./pants run helloworld/main.py
+        ./pants run antlr/antlr_demo.py
+        ./pants run javascript:run-js-app
+        ./pants export-codegen openapi:webapp-js-bindings
     - name: Upload pants log
       uses: actions/upload-artifact@v3
       with:
