@@ -32,7 +32,7 @@ adhoc_tool(
     name="generate-schema",
     runnable=":webapp",
     args=["dump-schema"],
-    stdout="webapp-schema.json",    
+    stdout="webapp-schema.json",
     root_output_directory=".",
 )
 
@@ -40,9 +40,22 @@ adhoc_tool(
 adhoc_tool(
     name="webapp-js-bindings",
     runnable=":openapi-generator",
-    args=["generate", "-i", "webapp-schema.json", "--skip-validate-spec", "-g", "javascript", "-o", "./webapp-js-bindings"],
-    execution_dependencies=[":generate-schema",],
-    output_directories=["webapp-js-bindings/",],
+    args=[
+        "generate",
+        "-i",
+        "webapp-schema.json",
+        "--skip-validate-spec",
+        "-g",
+        "javascript",
+        "-o",
+        "./webapp-js-bindings",
+    ],
+    execution_dependencies=[
+        ":generate-schema",
+    ],
+    output_directories=[
+        "webapp-js-bindings/",
+    ],
     workdir="/",
     root_output_directory=".",
 )

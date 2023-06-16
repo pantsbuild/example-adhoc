@@ -14,8 +14,12 @@ jvm_artifact(
 
 python_requirement(
     name="antlr4-python3-runtime",
-    modules=["antlr4",],
-    requirements=["antlr4-python3-runtime==4.11.1",],   
+    modules=[
+        "antlr4",
+    ],
+    requirements=[
+        "antlr4-python3-runtime==4.11.1",
+    ],
 )
 
 #
@@ -25,7 +29,10 @@ python_requirement(
 python_source(
     name="antlr_demo",
     source="antlr_demo.py",
-    dependencies=[":expr_parser_py", ":antlr4-python3-runtime",],
+    dependencies=[
+        ":expr_parser_py",
+        ":antlr4-python3-runtime",
+    ],
 )
 
 #
@@ -39,12 +46,21 @@ files(name="grammars", sources=["*.g4"])
 #
 
 # Runs the jar declared in `:antlr` with the args specified in `args`, consuming the grammar
-# from `:grammars`, providing the files in `expr_parser` as outputs. 
+# from `:grammars`, providing the files in `expr_parser` as outputs.
 adhoc_tool(
     name="run_antlr",
     runnable=":antlr4",
-    args=["Expr.g4", "-Dlanguage=Python3", "-o", "expr_parser", "-package", "expr_parser",],
-    output_directories=["expr_parser",],
+    args=[
+        "Expr.g4",
+        "-Dlanguage=Python3",
+        "-o",
+        "expr_parser",
+        "-package",
+        "expr_parser",
+    ],
+    output_directories=[
+        "expr_parser",
+    ],
     # These are consumed by `antlr`, but are not relevant to this target's dependents.
     execution_dependencies=[":grammars"],
     root_output_directory=".",
@@ -52,4 +68,9 @@ adhoc_tool(
 )
 
 # Allows the loose files provided by `:run_antlr` to be consumed as Python sources
-experimental_wrap_as_python_sources(name="expr_parser_py", inputs=[":run_antlr",])
+experimental_wrap_as_python_sources(
+    name="expr_parser_py",
+    inputs=[
+        ":run_antlr",
+    ],
+)
