@@ -4,14 +4,19 @@
 # Dependencies and source files
 files(
     name="package-config",
-    sources=["package.json", "yarn.lock",],
+    sources=[
+        "package.json",
+        "yarn.lock",
+    ],
     dependencies=[],
 )
 
 # The source files themselves
 files(
     name="js-sources",
-    sources=["*.js",],
+    sources=[
+        "*.js",
+    ],
     dependencies=[],
 )
 
@@ -48,8 +53,14 @@ adhoc_tool(
     runnable=":yarn",
     runnable_dependencies=[":node"],
     args=["parcel", "build"],
-    execution_dependencies=[":node-modules", ":js-sources",],
-    output_files=["index.js", "index.js.map",],
+    execution_dependencies=[
+        ":node-modules",
+        ":js-sources",
+    ],
+    output_files=[
+        "index.js",
+        "index.js.map",
+    ],
     root_output_directory=".",
 )
 
@@ -57,7 +68,9 @@ adhoc_tool(
 run_shell_command(
     name="run-js-app",
     command="node {chroot}/index.js",
-    execution_dependencies=[":build-js-app",],
+    execution_dependencies=[
+        ":build-js-app",
+    ],
 )
 
 # Demonstrate using the JS file as an input to an artifact
@@ -65,5 +78,7 @@ archive(
     name="packaged-js",
     format="tar",
     description="Package containing `index.js` file",
-    files=[":build-js-app",],
+    files=[
+        ":build-js-app",
+    ],
 )
