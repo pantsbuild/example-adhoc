@@ -25,7 +25,7 @@ jobs:
         node-version: [19.x]
     steps:
     - uses: actions/checkout@v3
-    - uses: pantsbuild/actions/init-pants@v2
+    - uses: pantsbuild/actions/init-pants@v5-scie-pants
       # This action bootstraps pants and manages 2-3 GHA caches.
       # See: github.com/pantsbuild/actions/tree/main/init-pants/
       with:
@@ -51,13 +51,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Check BUILD files
       run: |
-        ./pants tailor --check update-build-files --check ::
+        pants tailor --check update-build-files --check ::
     - name: Lint and typecheck
-      run: | 
-        ./pants lint check ::
+      run: |
+        pants lint check ::
     - name: Test
       run: |
-        ./pants test ::
+        pants test ::
     - name: Verify Demos
       run: |
         # We also smoke test that our release process will work by running `package`.
