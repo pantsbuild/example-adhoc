@@ -4,7 +4,7 @@ This is an example repository to demonstrate support for unsupported languages a
 
 The examples use the `adhoc_tool` and `system_binary` targets, that were added as experimental features in Pants 2.16.0a0, and will 
 
-~~See [pantsbuild.org](https://www.pantsbuild.org/docs) for much more detailed documentation of `adhoc_tool` and `system_binary`~~ Full documentation will available before Pants 2.16 stable release.
+See [pantsbuild.org](https://www.pantsbuild.org/docs/adhoc-tool) for much more detailed documentation of `adhoc_tool` and `system_binary`
 
 This is only one possible way of laying out your project with Pants. See 
 [pantsbuild.org/docs/source-roots#examples](https://www.pantsbuild.org/docs/source-roots#examples) for some other
