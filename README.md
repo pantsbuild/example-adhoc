@@ -1,14 +1,11 @@
 # Pants `adhoc_tool` examples
 
-This is an example repository to demonstrate support for unsupported languages and arbitrary 3rd-party tools in [Pants](https://pantsbuild.org). 
+This is an example repository to demonstrate support for arbitrary languages and 3rd-party tools in [Pants](https://pantsbuild.org).
 
-The examples use the `adhoc_tool` and `system_binary` targets, that were added as experimental features in Pants 2.16.0a0, and will 
-
-~~See [pantsbuild.org](https://www.pantsbuild.org/docs) for much more detailed documentation of `adhoc_tool` and `system_binary`~~ Full documentation will available before Pants 2.16 stable release.
+See [pantsbuild.org](https://www.pantsbuild.org/stable/docs/ad-hoc-tools/integrating-new-tools-without-plugins) for much more detailed documentation of `adhoc_tool` and `system_binary`.
 
 This is only one possible way of laying out your project with Pants. See 
-[pantsbuild.org/docs/source-roots#examples](https://www.pantsbuild.org/docs/source-roots#examples) for some other
-example layouts.
+[pantsbuild.org/docs/source-roots#examples](https://www.pantsbuild.org/docs/source-roots#examples) for some other example layouts.
 
 This repository demonstrates advanced uses of Pants. For more introductory use cases, consider looking at [`example-python`](https://github.com/pantsbuild/example-python) or [`example-jvm`](https://github.com/pantsbuild/example-jvm).
 
@@ -18,7 +15,7 @@ This repository demonstrates advanced uses of Pants. For more introductory use c
 
 Using `adhoc_tool`, you can run a Maven artifact that's declared by a `jvm_artifact` target. We can use that to run the JVM-based `antlr` parser generator to transparently produce Python bindings, which can then be imported from our first-party Python code.
 
-To see the demo in practice, run `./pants run antlr/antlr_demo.py`.
+To see the demo in practice, run `pants run antlr/antlr_demo.py`.
 
 This demo uses:
 
@@ -37,7 +34,7 @@ This allows you to use tools from languages that aren't directly supported by Pa
 
 Our demo produces a simple CLI script that imports an `npm` dependency and functions from a first-party library and links them together using [Parcel](https://parceljs.org/). Package resolution and tool execution is handled by `yarn`.
 
-To see the demo in practice, run `./pants run javascript:run-js-app`, or `./pants package javascript:packaged-js` to package the JavaScript code into a zip file.
+To see the demo in practice, run `pants run javascript:run-js-app`, or `pants package javascript:packaged-js` to package the JavaScript code into a zip file.
 
 This demo uses:
 
@@ -53,7 +50,7 @@ Using `adhoc_tool`, you can run individual first-party sources to fetch their ou
 
 In this example, a small Flask web application can dump an OpenAPI schema, which can in turn be used to transparently generate bindings for other languages.
 
-To see the demo in practive, run `./pants export-codegen openapi:webapp-js-bindings`
+To see the demo in practive, run `pants export-codegen openapi:webapp-js-bindings`
 
 This demo uses
 
