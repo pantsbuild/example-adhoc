@@ -24,7 +24,7 @@ jobs:
         python-version: [3.9]
         node-version: [19.x]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: pantsbuild/actions/init-pants@v5-scie-pants
       # This action bootstraps pants and manages 2-3 GHA caches.
       # See: github.com/pantsbuild/actions/tree/main/init-pants/
@@ -46,7 +46,7 @@ jobs:
         # but will cause the cache entry to grow without bound over time.
         # See https://www.pantsbuild.org/2.21/docs/using-pants/using-pants-in-ci for tips on how to periodically clean it up.
         # Alternatively you change gha-cache-key to ignore old caches.
-    - uses: actions/setup-node@v3
+    - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
     - name: Check BUILD files
@@ -67,7 +67,7 @@ jobs:
         # ./pants run javascript:run-js-app
         # ./pants export-codegen openapi:webapp-js-bindings
     - name: Upload pants log
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: pants-log
         path: .pants.d/pants.log
